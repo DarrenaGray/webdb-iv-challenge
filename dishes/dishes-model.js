@@ -20,7 +20,7 @@ function getDish(id) {
 function getDishRecipes(dishId) {
     return db('recipes as r')
     .join('dishes as d', 'd.id', 'r.dish_id')
-    .select('r.id', 'r.name', 'd.name as relatedDish')
+    .select('d.id', 'd.name', 'r.name as relatedRecipe')
     .where('r.dish_id', dishId);
 };
 
