@@ -4,7 +4,7 @@ const Dishes = require('./dishes-model');
 
 router.get('/', (req, res) => {
     Dishes
-        .find()
+        .getDishes()
         .then(dishes => {
             res.status(200).json(dishes);
         })
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const { id } = req.params
     Dishes
-        .findById(id)
+        .getDish(id)
         .then(dish => {
             if (dish) {
                 res.status(200).json(dish)
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     const dishInfo = req.body
     Dishes
-        .add(dishInfo)
+        .addDish(dishInfo)
         .then(dish => {
             res.status(201).json({ dish, message: "The dish was succesfully added!" })
         })
