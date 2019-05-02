@@ -12,7 +12,7 @@ function getRecipes() {
 function addRecipe(recipe) {
     return db('recipes')
     .insert(recipe, 'id')
-    .then(([id]) => {
-        return getDish(id);
+    .then(ids => {
+        return ({ id: ids[0] });
     });
 }
