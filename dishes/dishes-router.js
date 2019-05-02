@@ -29,4 +29,16 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    const dishInfo = req.body
+    Dishes
+        .add(dishInfo)
+        .then(dish => {
+            res.status(201).json({ dish, message: "The dish was succesfully added!" })
+        })
+        .catch(err => {
+            res.status(500).json({ err, message: "There was a problem adding the dish." })
+        });
+});
+
 module.exports = router;
