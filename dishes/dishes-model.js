@@ -10,7 +10,7 @@ function find() {
     return db('dishes');
 }
 
-function findById() {
+function findById(id) {
     return db('dishes')
         .where({ id })
         .first();
