@@ -10,4 +10,4 @@ exports.seed = function(knex, Promise) {
         {dish_id: 3, name: 'German Chocolate Cake'}
       ]);
     });
-};
+ };
